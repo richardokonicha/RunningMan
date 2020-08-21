@@ -21,7 +21,7 @@ api_hash = os.getenv("api_hash")
 sessionString = os.getenv("sessionString")
 debug = (os.getenv("DEBUG") == 'True')
 channel_link = os.getenv("channel_link")
-group = os.getenv("group")
+groupLink = os.getenv("group")
 
 
 

@@ -13,9 +13,9 @@ async def catcher(group, bot_client):
     # group = await bot_client.get_entity(group)
     # await bot_client(JoinChannelRequest(group))
     participants = await bot_client.get_participants(group)
-
-    for user in participants:
-        user = Users(user.id, user.access_hash, user.username)
-        
     return participants
+
+async def groupGetter(group, bot_client):
+    group = await bot_client.get_entity(group)
+    return group
 
