@@ -2,11 +2,14 @@ from config import channel_link
 from telethon.tl.functions.channels import InviteToChannelRequest
 from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError
 import traceback
+from telethon.tl.functions.channels import JoinChannelRequest
 
-# user = await bot_client.get_entity(username)
+async def joinner(channel, bot_client):
+    join = await bot_client(JoinChannelRequest(channel)) 
+    return join
 
 async def runner(user, bot_client):
-    try: 
+    try:
         invite = await bot_client(InviteToChannelRequest(
             channel_link,
             [user]
