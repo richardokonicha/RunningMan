@@ -1,11 +1,10 @@
 from dotenv import load_dotenv
-import os
-from apscheduler.schedulers.background import BackgroundScheduler
-from apscheduler.jobstores.mongodb import MongoDBJobStore
-from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
-from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
-from pytz import utc
-from apscheduler.schedulers.blocking import BlockingScheduler
+# import os
+# from apscheduler.schedulers.background import BackgroundScheduler
+# from apscheduler.jobstores.mongodb import MongoDBJobStore
+# from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
+# from pytz import utc
+# from apscheduler.schedulers.blocking import BlockingScheduler
 from telethon.sync import TelegramClient
 
 
