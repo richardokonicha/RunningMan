@@ -19,8 +19,8 @@ api_id = os.getenv("api_id")
 api_hash = os.getenv("api_hash")
 sessionString = os.getenv("sessionString")
 debug = (os.getenv("DEBUG") == 'True')
-channel_link = os.getenv("channel_link")
-groupLink = os.getenv("group")
+in_group = os.getenv("in_group")
+out_group = os.getenv("out_group")
 
 
 

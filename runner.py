@@ -1,8 +1,9 @@
-from config import channel_link
+from config import out_group
 from telethon.tl.functions.channels import InviteToChannelRequest
-from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError
+from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError, UserNotMutualContactError
 import traceback
 from telethon.tl.functions.channels import JoinChannelRequest
+import time, datetime, random
 
 async def joinner(channel, bot_client):
     join = await bot_client(JoinChannelRequest(channel)) 
@@ -11,7 +12,7 @@ async def joinner(channel, bot_client):
 async def runner(user, bot_client):
     try:
         invite = await bot_client(InviteToChannelRequest(
-            channel_link,
+            out_group,
             [user]
         ))
         username = user.username
@@ -20,7 +21,9 @@ async def runner(user, bot_client):
         print("Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
     except UserPrivacyRestrictedError:
         print("The user's privacy settings do not allow you to do this. Skipping.")
+    except UserNotMutualContactError:
+        print("The user isn't a mutal contact")
     except:
         traceback.print_exc()
         print("Unexpected Error")
-
+    return True
