@@ -6,8 +6,7 @@ from telethon.tl.functions.channels import JoinChannelRequest
 import os
 import datetime
 import random
-from config import in_group
-from utils import session_strings
+from config import in_group, session_strings
 
 async def itachi(bot_client, index):
     me = await bot_client.get_me()

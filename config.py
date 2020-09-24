@@ -17,14 +17,12 @@ load_dotenv()
 
 api_id = os.getenv("api_id")
 api_hash = os.getenv("api_hash")
-sessionString = os.getenv("sessionString")
 debug = (os.getenv("DEBUG") == 'True')
 in_group = os.getenv("in_group")
 out_group = os.getenv("out_group")
-
-
-
-
+session_strings = os.getenv("session_strings")
+session_strings = session_strings.split(",")
+y = session_strings
 
 # jobstores = {
 #     'default': MongoDBJobStore(client=client, database="test", HOST="realmcluster-shard-00-02.yjlnu.mongodb.net"),
