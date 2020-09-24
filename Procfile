@@ -1,1 +1,1 @@
-worker:python3 runningman.py
+worker: python3 runningman.py
