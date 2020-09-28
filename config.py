@@ -15,6 +15,7 @@ logging.basicConfig()
 logging.getLogger('apscheduler').setLevel(logging.DEBUG)
 load_dotenv()
 
+index_value = os.getenv("index_value")
 token = os.getenv("token")
 heroku_url = os.getenv("heroku_url")
 api_id = os.getenv("api_id")

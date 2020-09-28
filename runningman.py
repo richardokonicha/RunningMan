@@ -6,7 +6,7 @@ from telethon.tl.functions.channels import JoinChannelRequest
 import os
 import datetime
 import random
-from config import in_group, session_strings
+from config import in_group, session_strings, index_value
 import asyncio
 
 async def itachi(bot_client, index):
@@ -32,7 +32,7 @@ def client_master(list: session_strings, workfunc, index):
 # client_master(session_strings, itachi, index)
 
 def run_client_master():
-    index = 400
+    index = index_value
     client_master(session_strings, itachi, index)
 
 
