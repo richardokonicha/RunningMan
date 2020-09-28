@@ -21,6 +21,10 @@ async def catcher(group, bot_client, index):
                 print(f"Reached {max_add} cooling down")
                 cooldown = datetime.datetime.now() + datetime.timedelta(minutes=30)
                 break
+            if run == "Flooded":
+                print(f"Reached max capacity Flooded")
+                break
+            
     index = index + number
     return index
 

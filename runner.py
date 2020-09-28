@@ -19,8 +19,10 @@ async def runner(user, bot_client):
         print(f"RunningMan added {username}")
     except PeerFloodError:
         print("Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
+        return "Flooded"
     except UserPrivacyRestrictedError:
         print("The user's privacy settings do not allow you to do this. Skipping.")
+        # return False
     except UserNotMutualContactError:
         print("The user isn't a mutal contact")
     except:

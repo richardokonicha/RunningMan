@@ -12,6 +12,13 @@
       "console": "integratedTerminal"
     },
     {
+      "name": "Campaigner",
+      "type": "python",
+      "request": "launch",
+      "program": "campaigner.py",
+      "console": "integratedTerminal"
+    },
+    {
       "name": "Running Man",
       "type": "python",
       "request": "launch",
