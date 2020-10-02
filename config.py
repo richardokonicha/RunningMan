@@ -8,12 +8,17 @@ from pytz import utc
 from apscheduler.schedulers.blocking import BlockingScheduler
 from telethon.sync import TelegramClient
 import telebot
+from tinydb import TinyDB, Query
+
 
 import logging
 
 logging.basicConfig()
-logging.getLogger('apscheduler').setLevel(logging.DEBUG)
+logging.getLogger('apscheduler').setLevel(logging.ERROR)
 load_dotenv()
+
+db = TinyDB('db.json')
+
 
 index_value = int(os.getenv("index_value"))
 token = os.getenv("token")
@@ -25,6 +30,10 @@ in_group = os.getenv("in_group")
 out_group = os.getenv("out_group")
 session_strings = os.getenv("session_strings")
 session_strings = session_strings.split(",")
+
+# create objects in tinydb
+# db.insert({'index': 0})
+# db.insert({"session": session_strings})
 
 jobstores = {
     # 'default': MongoDBJobStore(client=client, database="test", HOST="realmcluster-shard-00-02.yjlnu.mongodb.net"),

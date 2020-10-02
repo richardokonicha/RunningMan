@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\Richard Okonicha\\.virtualenvs\\RunningMan-Tarvmsus\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\Richard Okonicha\\.virtualenvs\\RunningMan-Tarvmsus\\Scripts\\python.exe",
+    "python.formatting.provider": "autopep8"
 }

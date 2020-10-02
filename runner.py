@@ -1,15 +1,19 @@
-from config import out_group
+# from config import out_group
 from telethon.tl.functions.channels import InviteToChannelRequest
 from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError, UserNotMutualContactError
 import traceback
 from telethon.tl.functions.channels import JoinChannelRequest
-import time, datetime, random
+import time
+import datetime
+import random
+
 
 async def joinner(channel, bot_client):
-    join = await bot_client(JoinChannelRequest(channel)) 
+    join = await bot_client(JoinChannelRequest(channel))
     return join
 
-async def runner(user, bot_client):
+
+async def runner(user, out_group, bot_client):
     try:
         invite = await bot_client(InviteToChannelRequest(
             out_group,
