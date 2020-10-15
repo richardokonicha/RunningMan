@@ -13,17 +13,23 @@ async def catcher(group, out_group, bot_client, index):
     max_add = 50
     number = 0
     offset = 0
+    index_former = index
     group_admin = await bot_client.get_participants(group, filter=ChannelParticipantsAdmins)
     async for user in bot_client.iter_participants(group):
-        if index > offset:
+        if index_former > offset:
             offset = offset + 1
             pass
         else:
+            index = index + 1
+            db.update({'index': index})
+
             user_legible = check_status(user, group_admin)
             if user_legible:
                 run = await runner(user, out_group, bot_client)
-                number += 1
-                time.sleep(random.randint(1, 3))
+
+                if run == "Good":
+                    number += 1
+                    time.sleep(random.randint(1, 3))
 
                 if number >= max_add:
                     print(f"Reached {max_add} cooling down")
@@ -32,10 +38,14 @@ async def catcher(group, out_group, bot_client, index):
                 if run == "Flooded":
                     print(f"Reached max capacity Flooded")
                     break
+                if run == "NotAdmin":
+                    print(f"Not an Admin")
+                    break
             else:
                 pass
-    index = index + number
-    db.update({'index': index})
+    # index = index + number
+    # db.update({'index': index})
+    print(f"Added {number}")
     return index
 
 
@@ -52,8 +62,16 @@ def check_status(user, group_admin):
         return False
     if user.deleted:
         return False
-    if user.status.was_online < datetime.now(timezone.utc) - timedelta(days=150):
-        # check if user was online in last 5 months
-        return False
-    else:
-        return True
+
+    try:
+        inactivity_date = datetime.now(timezone.utc) - timedelta(days=150)
+        if user.status.was_online > inactivity_date:
+            # check if user was online in last 5 months
+            return True
+        else:
+            return False
+    except AttributeError:
+        if user.participant.date > inactivity_date:
+            return True
+        else:
+            return False

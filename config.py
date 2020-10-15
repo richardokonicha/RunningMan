@@ -9,6 +9,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 from telethon.sync import TelegramClient
 import telebot
 from tinydb import TinyDB, Query
+from utils import session_strings
 
 
 import logging
@@ -28,8 +29,8 @@ api_hash = os.getenv("api_hash")
 debug = (os.getenv("DEBUG") == 'True')
 in_group = os.getenv("in_group")
 out_group = os.getenv("out_group")
-session_strings = os.getenv("session_strings")
-session_strings = session_strings.split(",")
+# session_strings = os.getenv("session_strings")
+# session_strings = session_strings.split(",")
 
 # create objects in tinydb
 # db.insert({'index': 0})
