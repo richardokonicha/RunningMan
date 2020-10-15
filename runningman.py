@@ -6,7 +6,7 @@ from telethon.tl.functions.channels import JoinChannelRequest
 import os
 import datetime
 import random
-from config import session_strings, index_value
+from config import session_strings
 import asyncio
 from config import db
 
