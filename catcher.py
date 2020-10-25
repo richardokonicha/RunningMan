@@ -29,7 +29,7 @@ async def catcher(group, out_group, bot_client, index):
 
                 if run == "Good":
                     number += 1
-                    time.sleep(random.randint(1, 3))
+                    time.sleep(random.randint(1, 5))
 
                 if number >= max_add:
                     print(f"Reached {max_add} cooling down")
@@ -64,7 +64,7 @@ def check_status(user, group_admin):
         return False
 
     try:
-        inactivity_date = datetime.now(timezone.utc) - timedelta(days=150)
+        inactivity_date = datetime.now(timezone.utc) - timedelta(days=15)
         if user.status.was_online > inactivity_date:
             # check if user was online in last 5 months
             return True
